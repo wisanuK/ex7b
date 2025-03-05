@@ -1,24 +1,22 @@
 function checkSID() {
   let sid = (document.getElementById("sid").value).trim();
-  if (sid.length == 10) {
-    return true;
-  } else {
+  if (!/^\d{10}$/.test(sid)) {
     return false;
+  } 
+    return true;
   }
-}
 
 function checkCandiNo() {
   let candi = (document.getElementById("candi").value).trim();
   if (isNaN(candi) || candi < 1) {
     return false;
-  } else {
+  }
     return true;
   }
-}
 
 function validateForm(){
 	if(!checkSID()){
-	  alert("Invalid value for Student ID!");
+	  alert("Invalid Student ID! กรุณากรอกตัวเลข 10 หลัก (0-9 เท่านั้น)");
 	  document.getElementById("sid").focus();
 	  return false;
 	}else{
